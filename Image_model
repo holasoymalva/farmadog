@@ -1,0 +1,46 @@
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# Establecer rutas de directorios para datos de entrenamiento y prueba
+train_dir = 'path/to/training/data'
+test_dir = 'path/to/testing/data'
+
+# Generar conjuntos de datos de imágenes a través de aumentación de datos
+train_datagen = ImageDataGenerator(rescale=1./255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+# Generar conjuntos de datos de entrenamiento y prueba
+train_set = train_datagen.flow_from_directory(train_dir, target_size=(64, 64), batch_size=32, class_mode='binary')
+test_set = test_datagen.flow_from_directory(test_dir, target_size=(64, 64), batch_size=32, class_mode='binary')
+
+# Construir el modelo de aprendizaje automático
+model = tf.keras.Sequential([
+  tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(64, 64, 3)),
+  tf.keras.layers.MaxPooling2D(2,2),
+  tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+  tf.keras.layers.MaxPooling2D(2,2),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dense(1, activation='sigmoid')
+])
+
+# Compilar el modelo
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Entrenar el modelo
+model.fit(train_set, epochs=10, validation_data=test_set)
+
+# Evaluar el modelo
+test_loss, test_acc = model.evaluate(test_set)
+print('Test accuracy:', test_acc)
+
+# Hacer predicciones
+new_image = 'path/to/new/image'
+img = tf.keras.preprocessing.image.load_img(new_image, target_size=(64, 64))
+img = tf.keras.preprocessing.image.img_to_array(img)
+img = tf.expand_dims(img, axis=0)
+prediction = model.predict(img)
+if prediction < 0.5:
+    print('La imagen es falsa')
+else:
+    print('La imagen es verdadera')
