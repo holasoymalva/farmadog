@@ -91,11 +91,13 @@ More Information
 
 * [Issues](https://github.com/thoughtbot/medical-fraud-detections/issues)
 
+* [best-practices-for-flask-api-development](https://auth0.com/blog/best-practices-for-flask-api-development/)
 
 Useful Tools
 ------------
 
 * [ngrok](https://ngrok.com/) - helps to expose local host for facebook.
+
 
 Contributing
 ------------

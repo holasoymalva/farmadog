@@ -4,45 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles.css">
     <title>Input</title>
 </head>
 <body>
-
-    <header class="headers">
-        <p>Falsificación de Medicamentos - BellaKode</p>
-        <ul class="menu">
-            <li>Register</li>
-            <li>Log In</li>
-        </ul>
+    <header>
+        <p> Farmadog</p>
     </header>
-
-    <main>
-        <form action="">
-            <label for="nombre">
-                <span>¿Cuál es tu nombre?</span>
-                <input type="text" id="nombre" placeholder="Tu nombre, papu">
-            </label>
-            <label for="batch-code">
-                <span>Código Lote</span>
-                <input type="text" id="lote" placeholder="Código Lote">
-            </label>
-            <label for="horario">
-                <span>Fecha de Caducidad</span>
-                <input type="month" id="fecha-caducidad">
-            </label>
-        </form>
-    </main>
-
-    <footer class="footers">
-            <h3>Menu</h3>
-            <ul class="footer-menu">
-                <li><a href="#">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Term of use</a></li>
-            </ul>
-    </footer>
-
+    <div class="marvel">
+        <section class="marvel__intro">
+            <form action="">
+                <label for="batch-code">
+                    <span>Código de Lote : </span>
+                    <input type="text" id="lote" placeholder="Escribe el Lote">
+                </label>
+                <br>
+                <label for="horario">
+                    <span>Ingrese fecha de Caducidad : </span>
+                    <input type="month" id="fecha-caducidad">
+                </label>
+                <br>
+                <button type="submit">Verificar</button>
+            </form>
+        </section>
+    </div>
+    <footer class="t__rainbow">Made with 🌮 and Good Vibes 🍟</footer>
 </body>
 </html>

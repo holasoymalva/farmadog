@@ -1,11 +1,15 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask import Blueprint
 from datetime import date
 import json
 import os
 
+
+
 from utils.aes import encrypt, decrypt
 from utils.hash import hashGenerator
+
+from service.service import validate_batch
 
 
 import requests
@@ -30,34 +34,44 @@ def status():
         release__version="1.0.0",
         status="ok",
         date=date.today(),
-    )
+    ), 200
 
 # Consumo de la informacion
-@app.route('/mook')
+@app.route('/service/model')
 def mook():
     path = "/model"
-    filename = os.path.join("model", 'mook.json')
+    filename = os.path.join("model", 'data.json')
     with open(filename) as data_file:
         mook_data = json.load(data_file) 
-        return mook_data
+        return mook_data, 200
 
 # Consumimos servicios de AES-259 y Hash Tables
 
-@app.route('/service/aes/encrypt/<data>')
-def encrypt_aes(data):
-    hashValue = hashGenerator(data)
+@app.route('/service/aes/encrypt')
+def encrypt_aes():
+    batch = request.args.get('batch')
+    hashValue = hashGenerator(batch)
     encriptacion = encrypt(hashValue)
-    return jsonify( encriptacion = encriptacion.decode("utf-8", "ignore")) 
+    return jsonify( encriptacion = encriptacion.decode("utf-8", "ignore")) , 200
 
 @app.route('/service/aes/decrypt/<data>')
 def decrypt_aes(data):
     desencriptacion = decrypt(data)
-    return jsonify( desencriptacion = desencriptacion.decode("utf-8", "ignore"))
+    return jsonify( desencriptacion = desencriptacion.decode("utf-8", "ignore")), 200
+
+@app.route('/service/validBatch')
+def validBatch():
+    lote = request.args.get('lote')
+    date = request.args.get('date')
+    # return '''<h1>The response is: {} , {}</h1>'''.format(lote.upper() , date.upper())
+
+    regex = validate_batch(lote)
+    return jsonify( validBatch = regex), 200
 
 # add a service to send images to the server to be processed and return the results
 @app.route('/service/imagen/<data>')
 def imagen(data):
-    return jsonify( imagen = data)
+    return jsonify( imagen = data), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

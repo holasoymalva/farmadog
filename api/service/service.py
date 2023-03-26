@@ -1,15 +1,20 @@
-from flask import Flask
-import requests
+import re
+import os
+import json
 
-app = Flask(__name__)
+#regex validation for service batch
+def read_file():
+    filename = os.path.join("../model", 'data.json')
+    with open(filename) as data_file:
+        mook_data = json.load(data_file) 
+        return mook_data, 200
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
-
-@app.route('/about/<name>')
-def about(name):
-    return f'The about page {name}'
-
-if __name__ == '__main__':
-    app.run(debug=True)
+def validate_batch(batch):
+    value = False
+    if batch == "M216-05":
+        value = True
+    if batch == "U22S335":
+        value = True
+    if batch == "X24AU3":
+        value = True
+    return value
