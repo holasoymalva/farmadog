@@ -1,0 +1,26 @@
+{
+    "medicamento_1": {
+        "id": 1,
+        "nombre": "aspirina",
+        "descripcion": "Medicamento para el dolor de cabeza",
+        "lote": "X24AU3"
+    },
+    "medicamento_2": {
+        "id": 2,
+        "nombre": "Omeprazol",
+        "descripcion": "Medicamento para el dolor de estomago",
+        "lote": "M216-05"
+    },  
+    "medicamento_3": {
+        "id": 3,
+        "nombre": "Sentralina",
+        "descripcion": "Medicamento para el dolor de cabeza",
+        "lote": "U22S335"
+    },
+    "medicamento_4": {
+        "id": 4,
+        "nombre": "Paracetamol",
+        "descripcion": "Medicamento para el dolor de cabeza",
+        "lote": "U22S335"
+    }
+}
