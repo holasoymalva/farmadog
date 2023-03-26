@@ -21,7 +21,6 @@ I create a webhook through the use of node and express, I exposed my local host 
   - ✅ Express
 - ✅ Python
   - ✅ Flask
-  - ✅ 
 - ✅ IA Platform
 - ✅ Vision API
 - ✅ Messenger Platform
