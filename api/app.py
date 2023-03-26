@@ -13,17 +13,10 @@ import requests
 # app = create_app()
 app = Flask(__name__)
 
-
-    
-
 # Agregar autenticacion para que solo los usuarios autorizados puedan acceder a los datos
-
 # Agregar machinlearning para saber como identificar los medicamentos falsificados por region y por pais en costos y precios.
-
 # Agregar un hash para que los datos sean incorruptibles y no se puedan modificar
-
 # Unidades unicas para verificar que los valores de los medicamentos sean correctos y no duplicados y sea su llave primaria para medicamentos.
-
 
 @app.route('/')
 def hello_world():
@@ -48,8 +41,7 @@ def mook():
         mook_data = json.load(data_file) 
         return mook_data
 
-# Agregar encriptacion para verificar que los datos sean incorruptibles. Aes256 o RSA 4096
-# Consumimos servicios de AES y Hash Tables
+# Consumimos servicios de AES-259 y Hash Tables
 
 @app.route('/service/aes/encrypt/<data>')
 def encrypt_aes(data):
