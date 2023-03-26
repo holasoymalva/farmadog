@@ -50,10 +50,6 @@ def mook():
 # Agregar encriptacion para verificar que los datos sean incorruptibles. Aes256 o RSA 4096
 # Consumimos servicios de AES y Hash Tables
 
-# @app.route('/service/hash'):
-# def hash():
-#     return requests.get()
-
 @app.route('/service/aes/encrypt/<data>')
 def aes(data):
     hashValue = hashGenerator(data)
