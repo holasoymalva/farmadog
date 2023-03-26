@@ -4,7 +4,7 @@ from datetime import date
 import json
 import os
 
-from utils.aes import encrypt
+from utils.aes import encrypt, decrypt
 from utils.hash import hashGenerator
 
 
@@ -23,6 +23,7 @@ app = Flask(__name__)
 # Agregar un hash para que los datos sean incorruptibles y no se puedan modificar
 
 # Unidades unicas para verificar que los valores de los medicamentos sean correctos y no duplicados y sea su llave primaria para medicamentos.
+
 
 @app.route('/')
 def hello_world():
@@ -51,11 +52,20 @@ def mook():
 # Consumimos servicios de AES y Hash Tables
 
 @app.route('/service/aes/encrypt/<data>')
-def aes(data):
+def encrypt_aes(data):
     hashValue = hashGenerator(data)
-    encriptacion = encrypt(data)
-    return f'The about page {encriptacion}'
+    encriptacion = encrypt(hashValue)
+    return jsonify( encriptacion = encriptacion.decode("utf-8", "ignore")) 
 
+@app.route('/service/aes/decrypt/<data>')
+def decrypt_aes(data):
+    desencriptacion = decrypt(data)
+    return jsonify( desencriptacion = desencriptacion.decode("utf-8", "ignore"))
+
+# add a service to send images to the server to be processed and return the results
+@app.route('/service/imagen/<data>')
+def imagen(data):
+    return jsonify( imagen = data)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,28 +1,23 @@
+import base64 
 from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad,unpad
+
 import os
+import json
 
-def encrypt(data):
-    key = 'MbQeThWmZq4t6w9z$C&F)J@NcRfUjXn2'
-    cipher = AES.new(key.encode("utf8"), AES.MODE_EAX)
-    ciphertext, tag = cipher.encrypt_and_digest(data.encode("utf8"))
-    obj = {
-        'key': key,
-        'nonce': cipher.nonce,
-        'tag': tag,
-        'ciphertext': ciphertext
-    }
+key = 'AAAAAAAAAAAAAAAA'
 
-    return obj
+def encrypt(raw):
+    raw = pad(raw.encode(),16)
+    cipher = AES.new(key.encode('utf-8'), AES.MODE_ECB)
+    return base64.b64encode(cipher.encrypt(raw))
 
-    # ciphertext, tag = cipher.encrypt_and_digest(data.encode("utf8"))
-    # return key, cipher.nonce, tag, ciphertext
+def decrypt(enc):
+    enc = base64.b64decode(enc)
+    cipher = AES.new(key.encode('utf-8'), AES.MODE_ECB)
+    return unpad(cipher.decrypt(enc),16)
+    
 
-# def decrypt(key, nonce, tag, ciphertext):
-#     # obj = AES.new(key.encode("utf8"), AES.MODE_CBC, data.encode("utf8"))
-#     cipher = AES.new(key.encode("utf8"), AES.MODE_EAX, nonce=nonce)
-#     data = cipher.decrypt_and_verify(ciphertext, tag)
-#     return data
+# encrypted = encrypt(data)
 
-
-# Path: api/utils/hash.py
+# decrypted = decrypt(encrypted)
