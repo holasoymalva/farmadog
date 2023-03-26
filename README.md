@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/L3ts-H4ck/sayme-messenger/master/Pink%20and%20Blue%20Abstract%20Moms%20Influencer%20Freestyle%20Art%20Facebook%20Cover.png" width="100%" title="hover text">
 
-# 🎒 Medikat 📚
+# 🎒 Medicat 📚
 
 **A medical validation service**
 
@@ -16,18 +16,22 @@ I create a webhook through the use of node and express, I exposed my local host 
 
 ## 👨🏻‍💻 Tech Stack
 
-- ✅ Messenger Platform
 - ✅ Ngrok
 - ✅ Node.js
-- ✅ Express
+  - ✅ Express
+- ✅ Python
+  - ✅ Flask
+  - ✅ 
 - ✅ IA Platform
 - ✅ Vision API
-- ✅ Natural Language API
+- ✅ Messenger Platform
+- ✅ Web Interface
+
 
 ## 👩🏻‍🔬 What I learned
 In this awesome travel between different assistants platforms and ecosystems I take the opportunity to create awesome things with the use of messenger , a backend core build in node.js and express and build a IA model with the use of IA Platform ( Google Cloud Platform )
 
-## 📝 What's next for Sayme
+## 📝 What's next for Medicat
 - ✨ Add new languajes
 - ✨ Training with a big data set
 - ✨ Increase Vocabulary
@@ -46,16 +50,16 @@ m.me/okeysayme
 `Sayme` is a public domain work, dedicated using [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Feel free to do whatever you want with it.
 
 
-## Use the Sayme Core to build a mesenger chatbot 🦄
+## Use the Medicat Core to build a mesenger chatbot 🦄
 
 #### Download Project
   
-    $ git clone https://github.com/L3ts-H4ck/sayme-messenger.git
+    $ git clone https://github.com/holasoymalva/medical-fraud-detections
     
 #### Install dependencies
 
-    $ cd  sayme-messenger
-    $ npm install 
+    $ cd  medical-fraud-detections
+    $ pip3 install -r requirements.txt
     
 #### Loading environment variables
 
@@ -86,7 +90,7 @@ Supported Ruby versions are listed in as soon as possible.
 More Information
 ----------------
 
-* [Issues](https://github.com/thoughtbot/sayme-messenger/issues)
+* [Issues](https://github.com/thoughtbot/medical-fraud-detections/issues)
 
 
 Useful Tools
@@ -97,5 +101,5 @@ Useful Tools
 Contributing
 ------------
 
-Please see [CONTRIBUTING.md](https://github.com/L3ts-H4ck/sayme-messenger/blob/master/CONTRIBUTING.md).
+Please see [CONTRIBUTING.md](https://github.com/holasoymalva/medical-fraud-detections/).
 
