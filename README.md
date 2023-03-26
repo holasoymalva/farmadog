@@ -1,6 +1,6 @@
 <img src="https://github.com/holasoymalva/medical-fraud-detections/blob/main/src/source-bg.png?raw=true" width="100%" title="hover text">
 
-# 🎒 Medicat 📚
+# 🎒 Farmadog 📚
 
 **A medical validation service**
 
@@ -30,7 +30,7 @@ I create a webhook through the use of node and express, I exposed my local host 
 ## 👩🏻‍🔬 What I learned
 In this awesome travel between different assistants platforms and ecosystems I take the opportunity to create awesome things with the use of messenger , a backend core build in node.js and express and build a IA model with the use of IA Platform ( Google Cloud Platform )
 
-## 📝 What's next for Medicat
+## 📝 What's next for Farmadog
 - ✨ Add new languajes
 - ✨ Training with a big data set
 - ✨ Increase Vocabulary
